@@ -1,0 +1,26 @@
+-- Expand agent_configs with all additional fields
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS agent_role TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS greeting_message_no_product TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS greeting_message_no_name TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS product_question TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS deal_format_question TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS value_points TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS value_techniques TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS accepts_financing BOOLEAN DEFAULT true;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS financing_factor NUMERIC;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS financing_installments INTEGER;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS financing_message TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS accepts_trade BOOLEAN DEFAULT true;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS trade_message TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS trade_photos_message TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS cash_message TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS business_days TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS closed_days TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS cutoff_time TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS extra_rules TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS address TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS objective TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS final_action TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS tone_description TEXT;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS pause_duration_seconds INTEGER DEFAULT 10;
+ALTER TABLE agent_configs ADD COLUMN IF NOT EXISTS created_at TIMESTAMPTZ DEFAULT now();

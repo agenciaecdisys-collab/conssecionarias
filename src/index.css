@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 15% 4%;
+    --foreground: 0 0% 95%;
+
+    --card: 240 12% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 240 12% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 210 100% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 12% 14%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 240 10% 16%;
+    --muted-foreground: 240 5% 55%;
+
+    --accent: 175 70% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 210 100% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 15% 6%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 210 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 12% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 240 10% 12%;
+    --sidebar-ring: 210 100% 55%;
+
+    --chart-1: 210 100% 55%;
+    --chart-2: 175 70% 45%;
+    --chart-3: 280 70% 55%;
+    --chart-4: 45 90% 55%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+  }
+  .glass-hover {
+    transition: all 0.3s ease;
+  }
+  .glass-hover:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(210, 100%, 60%), hsl(175, 70%, 50%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(210, 100%, 55%), hsl(175, 70%, 45%));
+  }
+  .gradient-glow {
+    box-shadow: 0 0 30px -5px hsla(210, 100%, 55%, 0.3);
+  }
+  .sidebar-gradient {
+    background: linear-gradient(180deg, hsl(240, 15%, 7%) 0%, hsl(240, 15%, 4%) 100%);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(240, 15%, 6%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(240, 10%, 20%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(240, 10%, 30%);
+}
